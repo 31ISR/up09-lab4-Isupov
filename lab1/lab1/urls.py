@@ -8,6 +8,6 @@ urlpatterns = [
     path('about/', views.about),
     path('', views.index),
     path('posts/', include('posts.urls')),
-    path('communities/', include('communities.urls'))
+    path('communities/', include('communities.urls')),
     
 ]
