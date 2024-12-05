@@ -1,18 +1,14 @@
-{% extends 'layout.html' %}
-<!DOCTYPE html>
-{% load static %}
-<html lang="ru">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    {% block title %}
-        Communities
-    {% endblock %}
-</head>
-<body>
-    {% block content %}
-        <h1>Communities</h1>
-    {% endblock %}
-    <script src="{% static 'js/main.js'%}"></script>
-</body>
-</html>
+{% extends 'layout.html' %} {% block title %} Группы {% endblock %}
+{% block content %}
+<section>
+    <h1>Communities</h1>
+
+    {% for pop in communities %}
+    <article class="communities">
+        <h2>{{ pop.title }}</h2>
+        <p>{{ pop.date }}</p>
+        <p>{{ pop.body }}</p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
