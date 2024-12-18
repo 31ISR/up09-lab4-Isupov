@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} 
+{% block title %} Группы {% endblock %} 
+{% block content %}
+<section>
+    <h1>Группы</h1>
+
+    {% for pop in communities %}
+    <article class="communities">
+        <h2>
+            <a href="{% url 'communities:page' slug=pop.slug %}"> {{ pop.title }} </a>
+        </h2>
+        <p>{{ pop.date }}</p>
+        <p>{{ pop.body }}</p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
