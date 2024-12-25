@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Post
 from django.contrib.auth.decorators import login_required
 from . import forms 
+from django.shortcuts import redirect
 
 def posts_list(request):
     posts = Post.objects.all().order_by('-date')
