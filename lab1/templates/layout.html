@@ -30,13 +30,31 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'communities:list' %}"> Группы </a>
                   </li>
-                  
+                  <li class="nav-item">
+                    
+                    <a href="{% url 'posts:new-post' %}">Новый пост</a>
+                  </li>
+
                 </ul>
 
                 
-              </div><div><a href="{% url 'users:login' %}" class="btn btn-success  col- float-right" role="button">Войти</a></div>
+              </div>
+              {% if user.is_authenticated %}
+              <form class="logout" action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button title="User Logout" class="btn btn-danger  col float-right">Выйти</button>
+            </form>
+        {% else %}
+              <div>
+                <a href="{% url 'users:login' %}" class="btn btn-success  col- float-right" role="button">Войти</a></div>
               <a href="{% url 'users:register' %}" class="btn btn-danger  col-1 float-right" role="button" style="margin-left: 5px;">Регистрация</a>
             </div>
+            
+            {% endif %}
+    
+    
+   
+
           </nav>
         <main class="container">{% block content %} {% endblock %}</main>
     </body>

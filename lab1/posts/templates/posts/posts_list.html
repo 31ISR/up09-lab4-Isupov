@@ -1,5 +1,6 @@
 {% extends 'layout.html' %} {% block title %} Posts {% endblock %}
 {% block content %}
+
 <section>
     <h1>Posts</h1>
 
@@ -10,7 +11,9 @@
         </h2>
         <p>{{ post.date }}</p>
         <p>{{ post.body }}</p>
+        
     </article>
     {% endfor %}
 </section>
+
 {% endblock %}
