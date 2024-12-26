@@ -1,6 +1,16 @@
-{% extends 'layout.html' %} {% block title %} Новый пост {% endblock %}
+{% extends 'layout.html' %}
+
+{% block title %}
+   New Communities
+{% endblock %}
+
 {% block content %}
-<section>
-    <h1>Новая группа</h1>
-</section>
+    <section>
+        <h1>New Communities</h1>
+        <form class="form-with-validation" action="{% url 'communities:new-communities' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+            {{ form }}
+            <button class="form-submit btn btn-danger" style="margin-top: 2%;">Добавить группу</button>
+        </form>
+    </section>
 {% endblock %}
